@@ -1,1 +1,1 @@
-include ':jsonrpc-ws-android', ':utilities-android'
+include ':jsonrpc-ws-android'

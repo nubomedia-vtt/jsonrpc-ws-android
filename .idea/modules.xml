@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/jsonrpc-ws-android/jsonrpc-ws-android.iml" filepath="$PROJECT_DIR$/jsonrpc-ws-android/jsonrpc-ws-android.iml" />
       <module fileurl="file://$PROJECT_DIR$/nubomedia-jsonrpc-ws-android.iml" filepath="$PROJECT_DIR$/nubomedia-jsonrpc-ws-android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/utilities-android/utilities-android.iml" filepath="$PROJECT_DIR$/utilities-android/utilities-android.iml" />
     </modules>
   </component>
 </project>

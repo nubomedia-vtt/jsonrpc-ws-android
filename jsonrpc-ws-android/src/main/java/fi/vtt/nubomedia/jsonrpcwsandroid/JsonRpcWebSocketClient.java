@@ -6,12 +6,14 @@ import android.util.Log;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft_17;
 import org.java_websocket.handshake.ServerHandshake;
-import org.java_websocket.WebSocket;
 
 import java.net.URI;
 
 import fi.vtt.nubomedia.utilitiesandroid.LooperExecutor;
 
+/**
+ *
+ */
 public class JsonRpcWebSocketClient extends WebSocketClient {
 	private static final String TAG = "JsonRpcWebSocketClient";
 	private static final int CLOSE_TIMEOUT = 1000;
@@ -22,10 +24,16 @@ public class JsonRpcWebSocketClient extends WebSocketClient {
 	private final Object closeEventLock = new Object();
 	private boolean closeEvent;
 
+	/**
+	 *
+	 */
 	public enum WebSocketConnectionState {
 		CONNECTED, CLOSED, ERROR
 	}
 
+	/**
+	 *
+	 */
 	public interface WebSocketConnectionEvents {
 		public void onOpen(ServerHandshake handshakedata);
 		public void onMessage(JsonRpcResponse response);
@@ -34,6 +42,12 @@ public class JsonRpcWebSocketClient extends WebSocketClient {
 	}
 
 
+	/**
+	 *
+	 * @param serverUri
+	 * @param events
+	 * @param executor
+	 */
 	public JsonRpcWebSocketClient(URI serverUri, WebSocketConnectionEvents events, LooperExecutor executor) {
 		super(serverUri, new Draft_17());
 
@@ -42,6 +56,9 @@ public class JsonRpcWebSocketClient extends WebSocketClient {
 		this.executor = executor;
 	}
 
+	/**
+	 *
+	 */
 	public void connect() {
 		checkIfCalledOnValidThread();
 
@@ -50,6 +67,10 @@ public class JsonRpcWebSocketClient extends WebSocketClient {
 		super.connect();
 	}
 
+	/**
+	 *
+	 * @param waitForComplete
+	 */
 	public void disconnect(boolean waitForComplete) {
 		checkIfCalledOnValidThread();
 
@@ -72,28 +93,47 @@ public class JsonRpcWebSocketClient extends WebSocketClient {
 		}
 	}
 
+	/**
+	 *
+	 * @param request
+	 */
 	public void sendRequest(JsonRpcRequest request) {
 		checkIfCalledOnValidThread();
 
 		super.send(request.toString());
 	}
 
+	/**
+	 *
+	 * @param notification
+	 */
 	public void sendNotification(JsonRpcNotification notification) {
 		checkIfCalledOnValidThread();
 
 		super.send(notification.toString());
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public WebSocketConnectionState getConnectionState(){
 		return connectionState;
 	}
 
+	/**
+	 *
+	 */
 	private void checkIfCalledOnValidThread() {
 		if (!executor.checkOnLooperThread()) {
 			throw new IllegalStateException("WebSocket method is not called on valid thread");
 		}
 	}
 
+	/**
+	 *
+	 * @param handshakedata
+	 */
 	@Override
 	public void onOpen(final ServerHandshake handshakedata) {
 		executor.execute(new Runnable() {
@@ -105,6 +145,10 @@ public class JsonRpcWebSocketClient extends WebSocketClient {
 		});
 	}
 
+	/**
+	 *
+	 * @param message
+	 */
 	@Override
 	public void onMessage(final String message) {
 		executor.execute(new Runnable() {
@@ -121,6 +165,12 @@ public class JsonRpcWebSocketClient extends WebSocketClient {
 
 	}
 
+	/**
+	 *
+	 * @param code
+	 * @param reason
+	 * @param remote
+	 */
 	@Override
 	public void onClose(final int code, final String reason, final boolean remote) {
 		executor.execute(new Runnable() {
@@ -134,6 +184,10 @@ public class JsonRpcWebSocketClient extends WebSocketClient {
 		});
 	}
 
+	/**
+	 *
+	 * @param e
+	 */
 	@Override
 	public void onError(final Exception e) {
 		executor.execute(new Runnable() {

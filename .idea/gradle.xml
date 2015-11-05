@@ -10,7 +10,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/jsonrpc-ws-android" />
-            <option value="$PROJECT_DIR$/utilities-android" />
           </set>
         </option>
       </GradleProjectSettings>
