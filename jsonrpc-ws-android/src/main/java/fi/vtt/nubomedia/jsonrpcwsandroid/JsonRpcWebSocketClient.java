@@ -3,6 +3,12 @@ package fi.vtt.nubomedia.jsonrpcwsandroid;
 
 import android.util.Log;
 
+import com.thetransactioncompany.jsonrpc2.JSONRPC2Message;
+import com.thetransactioncompany.jsonrpc2.JSONRPC2Notification;
+import com.thetransactioncompany.jsonrpc2.JSONRPC2ParseException;
+import com.thetransactioncompany.jsonrpc2.JSONRPC2Request;
+import com.thetransactioncompany.jsonrpc2.JSONRPC2Response;
+
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft_17;
 import org.java_websocket.handshake.ServerHandshake;
@@ -36,7 +42,9 @@ public class JsonRpcWebSocketClient extends WebSocketClient {
 	 */
 	public interface WebSocketConnectionEvents {
 		public void onOpen(ServerHandshake handshakedata);
-		public void onMessage(JsonRpcResponse response);
+		public void onRequest(JsonRpcRequest request);
+		public void onResponse(JsonRpcResponse response);
+		public void onNotification(JsonRpcNotification notification);
 		public void onClose(int code, String reason, boolean remote);
 		public void onError(Exception e);
 	}
@@ -155,9 +163,28 @@ public class JsonRpcWebSocketClient extends WebSocketClient {
 			@Override
 			public void run() {
 				if (connectionState == WebSocketConnectionState.CONNECTED) {
-					JsonRpcResponse response = new JsonRpcResponse(message);
-					if(response != null){
-						events.onMessage(response);
+					try {
+						JSONRPC2Message msg = JSONRPC2Message.parse(message);
+
+						if (msg instanceof JSONRPC2Request) {
+							JsonRpcRequest request = new JsonRpcRequest();
+							request.setId(((JSONRPC2Request) msg).getID());
+							request.setMethod(((JSONRPC2Request) msg).getMethod());
+							request.setNamedParams(((JSONRPC2Request) msg).getNamedParams());
+							request.setPositionalParams(((JSONRPC2Request) msg).getPositionalParams());
+							events.onRequest(request);
+						} else if (msg instanceof JSONRPC2Notification) {
+							JsonRpcNotification notification = new JsonRpcNotification();
+							notification.setMethod(((JSONRPC2Notification) msg).getMethod());
+							notification.setNamedParams(((JSONRPC2Notification) msg).getNamedParams());
+							notification.setPositionalParams(((JSONRPC2Notification) msg).getPositionalParams());
+							events.onNotification(notification);
+						} else if (msg instanceof JSONRPC2Response) {
+							JsonRpcResponse notification = new JsonRpcResponse(message);
+							events.onResponse(notification);
+						}
+					} catch (JSONRPC2ParseException e) {
+						// TODO: Handle exception
 					}
 				}
 			}
