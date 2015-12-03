@@ -15,7 +15,7 @@ Usage
 --------
 You can import this project to your own Android Studio project via Maven (jCenter or Maven Central) by adding the following line to module's `build.gradle` file:
 ```
-compile 'fi.vtt.nubomedia:jsonrpc-ws-android:1.0.0'
+compile 'fi.vtt.nubomedia:jsonrpc-ws-android:1.0.1'
 ```
 
 If you want to build the project from source, you need to import the third-party libraries via Maven by adding the following lines to
