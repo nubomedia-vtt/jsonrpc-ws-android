@@ -60,7 +60,10 @@ public class JsonRpcRequest {
 	 */
 	public void setNamedParams(Map<String, Object> namedParams) {
 		this.namedParams = namedParams;
-		setPositionalParams(null);
+		// to prevent a recursive loop with setPositionalParams
+		if(namedParams!=null) {
+			setPositionalParams(null);
+		}
 	}
 
 	/**
@@ -77,7 +80,10 @@ public class JsonRpcRequest {
 	 */
 	public void setPositionalParams(List<Object> positionalParams) {
 		this.positionalParams = positionalParams;
-		setNamedParams(null);
+		// to prevent a recursive loop with setNamedParams
+		if(positionalParams!=null) {
+			setNamedParams(null);
+		}
 	}
 
 	/**
