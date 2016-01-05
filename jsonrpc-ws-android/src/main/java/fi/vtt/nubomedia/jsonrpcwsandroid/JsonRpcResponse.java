@@ -11,9 +11,12 @@ public class JsonRpcResponse {
 	public JsonRpcResponse(String jsonString) {
 		try {
 			response = JSONRPC2Response.parse(jsonString);
-			JSONRPC2Error error = response.getError();
-			this.error = new JsonRpcResponseError(error.getCode(), error.getData());
-
+			if(response.indicatesSuccess()) {
+				this.error = null;
+			} else {
+				JSONRPC2Error error = response.getError();
+				this.error = new JsonRpcResponseError(error.getCode(), error.getData());
+			}
 		} catch (JSONRPC2ParseException e) {
 			response = null;
 			e.printStackTrace();
