@@ -43,7 +43,9 @@ public class JsonRpcNotification {
 	 */
 	public void setNamedParams(Map<String, Object> namedParams) {
 		this.namedParams = namedParams;
-		setPositionalParams(null);
+		if(namedParams!=null) {
+			setPositionalParams(null);
+		}
 	}
 
 	/**
@@ -60,7 +62,9 @@ public class JsonRpcNotification {
 	 */
 	public void setPositionalParams(List<Object> positionalParams) {
 		this.positionalParams = positionalParams;
-		setNamedParams(null);
+		if(positionalParams != null) {
+			setNamedParams(null);
+		}
 	}
 
 	/**
