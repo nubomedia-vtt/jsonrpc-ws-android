@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# kurento-room-client-android documentation build configuration file, created by
+# jsonrpc-ws-android documentation build configuration file, created by
 # sphinx-quickstart on Mon Jan 18 16:06:05 2016.
 #
 # This file is execfile()d with the current directory set to its
@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'kurento-room-client-android'
+project = u'jsonrpc-ws-android'
 copyright = u'2016, Jukka Ahola'
 author = u'Jukka Ahola'
 
@@ -201,7 +201,7 @@ html_static_path = ['_static']
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'kurento-room-client-androiddoc'
+htmlhelp_basename = 'jsonrpc-ws-androiddoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -223,7 +223,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'kurento-room-client-android.tex', u'kurento-room-client-android Documentation',
+    (master_doc, 'jsonrpc-ws-android.tex', u'jsonrpc-ws-android Documentation',
      u'Jukka Ahola', 'manual'),
 ]
 
@@ -253,7 +253,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'kurento-room-client-android', u'kurento-room-client-android Documentation',
+    (master_doc, 'jsonrpc-ws-android', u'jsonrpc-ws-android Documentation',
      [author], 1)
 ]
 
@@ -267,8 +267,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'kurento-room-client-android', u'kurento-room-client-android Documentation',
-     author, 'kurento-room-client-android', 'One line description of project.',
+    (master_doc, 'jsonrpc-ws-android', u'jsonrpc-ws-android Documentation',
+     author, 'jsonrpc-ws-android', 'One line description of project.',
      'Miscellaneous'),
 ]
 
