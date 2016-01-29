@@ -15,12 +15,12 @@ The repository contains description of the the jsonrpc-ws-android library and al
 
 
 Repository structure
+====================
 
 This repository consists of an Android Studio library project. The project uses the following third-party libraries:
-
-`https://github.com/nubomedia-vtt/utilities-android <https://github.com/nubomedia-vtt/utilities-android>`__
-`https://github.com/TooTallNate/Java-WebSocket <https://github.com/TooTallNate/Java-WebSocket>`__
-`http://software.dzhuvinov.com/json-rpc-2.0-base.html <http://software.dzhuvinov.com/json-rpc-2.0-base.html>`__
+https://github.com/nubomedia-vtt/utilities-android
+https://github.com/TooTallNate/Java-WebSocket
+http://software.dzhuvinov.com/json-rpc-2.0-base.html
 
 
 
