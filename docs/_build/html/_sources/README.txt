@@ -18,9 +18,11 @@ Repository structure
 ====================
 
 This repository consists of an Android Studio library project. The project uses the following third-party libraries:
-   |https://github.com/nubomedia-vtt/utilities-android 
-   |https://github.com/TooTallNate/Java-WebSocket 
-   |http://software.dzhuvinov.com/json-rpc-2.0-base.html 
+
+.. code:: java
+   https://github.com/nubomedia-vtt/utilities-android 
+   https://github.com/TooTallNate/Java-WebSocket 
+   http://software.dzhuvinov.com/json-rpc-2.0-base.html 
 
 
 
