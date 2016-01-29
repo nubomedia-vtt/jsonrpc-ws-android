@@ -14,8 +14,8 @@ The repository contains documentation for installing and utilising the jsonrpc-w
 The repository contains description of the the jsonrpc-ws-android library and also the source code of the jsonrpc-ws-android implementation.
 
 
-Repository structure
-====================
+Third-party libraries
+=====================
 
 This repository consists of an Android Studio library project. The project uses the following third-party libraries:
 
