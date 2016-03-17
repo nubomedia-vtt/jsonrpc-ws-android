@@ -4,6 +4,9 @@ This repository contains an Android library for sending JSON-RPC messages over a
 
 This project is part of [NUBOMEDIA](http://www.nubomedia.eu).
 
+Ducomentation
+--------------------
+
 Documentation is available at: http://jsonrpc-ws-android.readthedocs.org/en/latest/
 
 Repository structure
