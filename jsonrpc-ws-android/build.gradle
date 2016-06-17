@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: "com.jfrog.bintray"
 
-version "1.0.5"
+version "1.0.6"
 
 android {
     compileSdkVersion 23
@@ -26,9 +26,9 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
 
-    compile 'org.java-websocket:Java-WebSocket:1.3.0'
-    compile 'com.thetransactioncompany:jsonrpc2-base:1.38'
-    compile 'fi.vtt.nubomedia:utilities-android:1.0.0'
+    compile('com.thetransactioncompany:jsonrpc2-base:1.38')
+    compile('org.java-websocket:Java-WebSocket:1.3.0')
+    compile('fi.vtt.nubomedia:utilities-android:1.0.1@aar') { transitive=true }
 }
 
 def siteUrl = 'https://github.com/nubomedia-vtt/jsonrpc-ws-android'      // Homepage URL of the library

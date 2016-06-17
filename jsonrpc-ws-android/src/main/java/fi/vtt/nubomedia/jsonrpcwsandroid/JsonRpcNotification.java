@@ -5,42 +5,23 @@ import com.thetransactioncompany.jsonrpc2.JSONRPC2Notification;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- */
 public class JsonRpcNotification {
 	private String method;
 	private Map<String, Object> namedParams;
 	private List<Object> positionalParams;
 
-	/**
-	 *
-	 * @return
-	 */
 	public String getMethod() {
 		return method;
 	}
 
-	/**
-	 *
-	 * @param method
-	 */
 	public void setMethod(String method) {
 		this.method = method;
 	}
 
-	/**
-	 *
-	 * @return
-	 */
 	public Map<String, Object> getNamedParams() {
 		return namedParams;
 	}
 
-	/**
-	 *
-	 * @param namedParams
-	 */
 	public void setNamedParams(Map<String, Object> namedParams) {
 		this.namedParams = namedParams;
 		if(namedParams!=null) {
@@ -48,18 +29,10 @@ public class JsonRpcNotification {
 		}
 	}
 
-	/**
-	 *
-	 * @return
-	 */
 	public List<Object> getPositionalParams() {
 		return positionalParams;
 	}
 
-	/**
-	 *
-	 * @param positionalParams
-	 */
 	public void setPositionalParams(List<Object> positionalParams) {
 		this.positionalParams = positionalParams;
 		if(positionalParams != null) {
@@ -67,10 +40,6 @@ public class JsonRpcNotification {
 		}
 	}
 
-	/**
-	 *
-	 * @return
-	 */
 	public String toString() {
 		JSONRPC2Notification notification;
 		if (namedParams != null) {
