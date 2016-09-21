@@ -6,3 +6,6 @@
 /build
 /captures
 /utilities-android
+/.idea
+/*.iml
+*.iml
