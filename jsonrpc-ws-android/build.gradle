@@ -41,17 +41,13 @@ install {
         pom {
             project {
                 packaging 'aar'
-
-                // Add your description here
                 name 'jsonrpc-ws-android'
                 description = 'Android library for sending JSON-RPC messages over a WebSocket connection.'
                 url siteUrl
-
-                // Set your license
                 licenses {
                     license {
-                        name 'The BSD 3-Clause License'
-                        url 'https://github.com/nubomedia-vtt/jsonrpc-ws-android/blob/master/LICENSE'
+                        name 'Apache License 2.0'
+                        url 'https://www.apache.org/licenses/LICENSE-2.0.txt'
                     }
                 }
                 developers {
